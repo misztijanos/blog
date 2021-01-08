@@ -4,14 +4,14 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
+const dotEnv = require("dotenv").config();
 
 const port = process.env.PORT || 3000;
 // express app
 const app = express();
 
 // connect to mongodb & listen for requests
-const dbURI =
-  "mongodb+srv://janos:test1234@cluster0.gv7yn.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const dbURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.gv7yn.mongodb.net/<dbname>?retryWrites=true&w=majority`;
 
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
