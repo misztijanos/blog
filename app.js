@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
 const dotEnv = require("dotenv").config();
 
+console.log(process.env.DB_USER, process.env.DB_PASSWORD);
+
 const port = process.env.PORT || 3000;
 // express app
 const app = express();
